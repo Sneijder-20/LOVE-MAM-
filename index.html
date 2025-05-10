@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Feliz Día Mamá!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top right, #ffd6e0, #ffe6f2);
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .Love_You_Mon {
+      position: relative;
+      z-index: 2;
+      background-color: #fff0f5;
+      padding: 3em;
+      border-radius: 30px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: fadeInUp 2s ease-out;
+      max-width: 500px;
+    }
+
+    .Love_You_Mon h1, .Love_You_Mon p {
+      color: #c2185b;
+    }
+
+    .Love_You_Mon h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .Love_You_Mon p {
+      font-size: 1.5em;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      font-family: 'Pacifico', cursive;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(80px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d6d;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d6d;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="Love_You_Mon">
+    <!-- Primera página -->
+    <div class="page active" id="page1">
+      <h1>¡Feliz Día Mamá! 💐</h1>
+      <p>Gracias por ser mi guía, mi fuerza y mi amor eterno. Te amo con todo mi corazón. ❤️</p>
+      <button onclick="nextPage()">Siguiente</button>
+    </div>
+
+    <!-- Segunda página -->
+    <div class="page" id="page2">
+      <h1>Mi Orgullo 💖</h1>
+      <p>Eres mi inspiración y mi mayor orgullo, gracias por todo tu amor.</p>
+    </div>
+  </div>
+
+  <!-- Corazones flotando -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 300);
+
+    function nextPage() {
+      document.getElementById("page1").classList.remove("active");
+      document.getElementById("page2").classList.add("active");
+    }
+  </script>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="https://docs.google.com/uc?export=download&id=1jOaoK1qChzAc1g6fyNVlaiEmaYMujFC5" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+</body>
+</html>
+
+
